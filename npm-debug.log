@@ -1,0 +1,182 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose node symlink /usr/bin/node
+5 warn package.json vuelos@0.0.1 No repository field.
+6 warn package.json vuelos@0.0.1 No README data
+7 verbose readDependencies using package.json deps
+8 verbose install where, deps [ '/home/arley/nodejs/vuelos',
+8 verbose install   [ 'express',
+8 verbose install     'body-parser',
+8 verbose install     'cookie-parser',
+8 verbose install     'morgan',
+8 verbose install     'serve-favicon',
+8 verbose install     'debug',
+8 verbose install     'jade',
+8 verbose install     'Stylus',
+8 verbose install     'mongoose' ] ]
+9 info preinstall vuelos@0.0.1
+10 verbose readDependencies using package.json deps
+11 verbose already installed skipping express@~4.9.0 /home/arley/nodejs/vuelos
+12 verbose already installed skipping cookie-parser@~1.3.3 /home/arley/nodejs/vuelos
+13 verbose already installed skipping body-parser@~1.8.1 /home/arley/nodejs/vuelos
+14 verbose already installed skipping morgan@~1.3.0 /home/arley/nodejs/vuelos
+15 verbose already installed skipping serve-favicon@~2.1.3 /home/arley/nodejs/vuelos
+16 verbose already installed skipping debug@~2.0.0 /home/arley/nodejs/vuelos
+17 verbose already installed skipping jade@~1.6.0 /home/arley/nodejs/vuelos
+18 verbose cache add [ 'Stylus@~ 0.36.1', null ]
+19 verbose cache add name=undefined spec="Stylus@~ 0.36.1" args=["Stylus@~ 0.36.1",null]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: 'Stylus@~%200.36.1',
+20 verbose parsed url   path: 'Stylus@~%200.36.1',
+20 verbose parsed url   href: 'Stylus@~%200.36.1' }
+21 verbose cache add [ 'mongoose@latest', null ]
+22 verbose cache add name=undefined spec="mongoose@latest" args=["mongoose@latest",null]
+23 verbose parsed url { protocol: null,
+23 verbose parsed url   slashes: null,
+23 verbose parsed url   auth: null,
+23 verbose parsed url   host: null,
+23 verbose parsed url   port: null,
+23 verbose parsed url   hostname: null,
+23 verbose parsed url   hash: null,
+23 verbose parsed url   search: null,
+23 verbose parsed url   query: null,
+23 verbose parsed url   pathname: 'mongoose@latest',
+23 verbose parsed url   path: 'mongoose@latest',
+23 verbose parsed url   href: 'mongoose@latest' }
+24 verbose cache add name="Stylus" spec="~ 0.36.1" args=["Stylus","~ 0.36.1"]
+25 verbose parsed url { protocol: null,
+25 verbose parsed url   slashes: null,
+25 verbose parsed url   auth: null,
+25 verbose parsed url   host: null,
+25 verbose parsed url   port: null,
+25 verbose parsed url   hostname: null,
+25 verbose parsed url   hash: null,
+25 verbose parsed url   search: null,
+25 verbose parsed url   query: null,
+25 verbose parsed url   pathname: '~%200.36.1',
+25 verbose parsed url   path: '~%200.36.1',
+25 verbose parsed url   href: '~%200.36.1' }
+26 verbose addNamed [ 'Stylus', '~ 0.36.1' ]
+27 verbose addNamed [ null, '>=0.36.1-0 <0.37.0-0' ]
+28 verbose cache add name="mongoose" spec="latest" args=["mongoose","latest"]
+29 verbose parsed url { protocol: null,
+29 verbose parsed url   slashes: null,
+29 verbose parsed url   auth: null,
+29 verbose parsed url   host: null,
+29 verbose parsed url   port: null,
+29 verbose parsed url   hostname: null,
+29 verbose parsed url   hash: null,
+29 verbose parsed url   search: null,
+29 verbose parsed url   query: null,
+29 verbose parsed url   pathname: 'latest',
+29 verbose parsed url   path: 'latest',
+29 verbose parsed url   href: 'latest' }
+30 verbose addNamed [ 'mongoose', 'latest' ]
+31 verbose addNamed [ null, null ]
+32 silly lockFile b14a6d2d-Stylus-0-36-1 Stylus@~ 0.36.1
+33 verbose lock Stylus@~ 0.36.1 /home/arley/.npm/b14a6d2d-Stylus-0-36-1.lock
+34 silly lockFile 73e949f4-mongoose-latest mongoose@latest
+35 verbose lock mongoose@latest /home/arley/.npm/73e949f4-mongoose-latest.lock
+36 silly addNameRange { name: 'Stylus', range: '>=0.36.1-0 <0.37.0-0', hasData: false }
+37 info addNameTag [ 'mongoose', 'latest' ]
+38 verbose request where is /Stylus
+39 verbose request registry https://registry.npmjs.org/
+40 verbose request id 3ec5407ec20c5c77
+41 verbose url raw /Stylus
+42 verbose url resolving [ 'https://registry.npmjs.org/', './Stylus' ]
+43 verbose url resolved https://registry.npmjs.org/Stylus
+44 verbose request where is https://registry.npmjs.org/Stylus
+45 info trying registry request attempt 1 at 00:12:31
+46 http GET https://registry.npmjs.org/Stylus
+47 verbose request where is /mongoose
+48 verbose request registry https://registry.npmjs.org/
+49 verbose url raw /mongoose
+50 verbose url resolving [ 'https://registry.npmjs.org/', './mongoose' ]
+51 verbose url resolved https://registry.npmjs.org/mongoose
+52 verbose request where is https://registry.npmjs.org/mongoose
+53 info trying registry request attempt 1 at 00:12:31
+54 verbose etag "9T2HNPLNMOBS5RSOIDPVATI6K"
+55 http GET https://registry.npmjs.org/mongoose
+56 http 404 https://registry.npmjs.org/Stylus
+57 verbose headers { date: 'Fri, 26 Sep 2014 05:12:32 GMT',
+57 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+57 verbose headers   'content-type': 'application/json',
+57 verbose headers   'cache-control': 'max-age=0',
+57 verbose headers   'content-length': '52',
+57 verbose headers   'accept-ranges': 'bytes',
+57 verbose headers   via: '1.1 varnish',
+57 verbose headers   age: '0',
+57 verbose headers   'x-served-by': 'cache-atl6235-ATL',
+57 verbose headers   'x-cache': 'MISS',
+57 verbose headers   'x-cache-hits': '0',
+57 verbose headers   'x-timer': 'S1411708352.014200,VS0,VE25',
+57 verbose headers   'keep-alive': 'timeout=10, max=50',
+57 verbose headers   connection: 'Keep-Alive' }
+58 silly registry.get cb [ 404,
+58 silly registry.get   { date: 'Fri, 26 Sep 2014 05:12:32 GMT',
+58 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+58 silly registry.get     'content-type': 'application/json',
+58 silly registry.get     'cache-control': 'max-age=0',
+58 silly registry.get     'content-length': '52',
+58 silly registry.get     'accept-ranges': 'bytes',
+58 silly registry.get     via: '1.1 varnish',
+58 silly registry.get     age: '0',
+58 silly registry.get     'x-served-by': 'cache-atl6235-ATL',
+58 silly registry.get     'x-cache': 'MISS',
+58 silly registry.get     'x-cache-hits': '0',
+58 silly registry.get     'x-timer': 'S1411708352.014200,VS0,VE25',
+58 silly registry.get     'keep-alive': 'timeout=10, max=50',
+58 silly registry.get     connection: 'Keep-Alive' } ]
+59 silly lockFile b14a6d2d-Stylus-0-36-1 Stylus@~ 0.36.1
+60 silly lockFile b14a6d2d-Stylus-0-36-1 Stylus@~ 0.36.1
+61 http 304 https://registry.npmjs.org/mongoose
+62 silly registry.get cb [ 304,
+62 silly registry.get   { date: 'Fri, 26 Sep 2014 05:12:32 GMT',
+62 silly registry.get     server: 'Apache',
+62 silly registry.get     via: '1.1 varnish',
+62 silly registry.get     'last-modified': 'Fri, 26 Sep 2014 05:12:32 GMT',
+62 silly registry.get     'cache-control': 'max-age=60',
+62 silly registry.get     etag: '"9T2HNPLNMOBS5RSOIDPVATI6K"',
+62 silly registry.get     'x-served-by': 'cache-jfk1030-JFK',
+62 silly registry.get     'x-cache': 'HIT',
+62 silly registry.get     'x-cache-hits': '1',
+62 silly registry.get     'x-timer': 'S1411708352.114879,VS0,VE356',
+62 silly registry.get     vary: 'Accept',
+62 silly registry.get     'content-length': '0',
+62 silly registry.get     'keep-alive': 'timeout=10, max=50',
+62 silly registry.get     connection: 'Keep-Alive' } ]
+63 verbose etag https://registry.npmjs.org/mongoose from cache
+64 verbose addNamed [ 'mongoose', '3.8.16' ]
+65 verbose addNamed [ '3.8.16', '3.8.16' ]
+66 silly lockFile 36ff0e8d-mongoose-3-8-16 mongoose@3.8.16
+67 verbose lock mongoose@3.8.16 /home/arley/.npm/36ff0e8d-mongoose-3-8-16.lock
+68 silly lockFile 36ff0e8d-mongoose-3-8-16 mongoose@3.8.16
+69 silly lockFile 36ff0e8d-mongoose-3-8-16 mongoose@3.8.16
+70 silly lockFile 73e949f4-mongoose-latest mongoose@latest
+71 silly lockFile 73e949f4-mongoose-latest mongoose@latest
+72 info already installed mongoose@3.8.16
+73 error 404 404 Not Found: Stylus
+73 error 404
+73 error 404 'Stylus' is not in the npm registry.
+73 error 404 You should bug the author to publish it
+73 error 404 It was specified as a dependency of 'vuelos'
+73 error 404
+73 error 404 Note that you can also install from a
+73 error 404 tarball, folder, or http url, or git url.
+74 error System Linux 3.13.0-32-generic
+75 error command "/usr/bin/node" "/usr/bin/npm" "install"
+76 error cwd /home/arley/nodejs/vuelos
+77 error node -v v0.10.32
+78 error npm -v 1.4.28
+79 error code E404
+80 verbose exit [ 1, true ]
