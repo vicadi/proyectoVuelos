@@ -1,7 +1,44 @@
 doctype html
 html
   head
+    meta(charset="utf-8")
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    link(rel='stylesheet', href='./css/style.css')
+    link(rel='stylesheet', href='./css/bootstrap.css')
+    link(rel='stylesheet', href='./css/apprise-v2.css')
+
+    script(type='text/javascript', src='./js/jquery-1.10.2.js')
+    script(type='text/javascript', src='./js/bootstrap.js')
+    script(type='text/javascript', src='./js/script.js')
+    script(type='text/javascript', src='./js/apprise-v2.js')
+body
+  #cabecera
+    #login
+      table
+        tr
+          form(method="POST", action="/login")
+            td
+              input(type="text" name="usuario" placeholder='Usuario')
+            td
+              input(type="text" name="contraseña" placeholder='Contraseña')
+        tr
+          td
+            a(href='#' onclick="Apprise('Registrar');") Registrate
+          td
+            a(href='#' onclick="Apprise('Restaurar contraseña');") Olvidaste la contraseña
+    a(href='/')
+      #logo
+          img(src='./images/logo.png' width='80%')
+  #contenedor
+    #navegacion
+      ul.nav.nav-pills
+        li(class=pVuelos)
+          a(href='/') Vuelos
+        li(class=pRecervar)
+          a(href='/recervar') Recervar vuelos
+        li(class=pCancelar)
+          a(href='/cancelar') Cancelar vuelos
+        li(class=pCliente)
+          a(href='/cliente') Cliente
+      #principal
+        block content

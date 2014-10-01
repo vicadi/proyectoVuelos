@@ -4,6 +4,15 @@ var app = module.exports = express();
 app.set('views', __dirname + '/views');
 
 //get
+app.get('/cliente', function(request, response) {
+    
+   response.render('cliente', {
+    title: 'Recervas',
+    pCliente: 'active'
+  });
+ 
+});
+
 app.get('/cliente/new', function(request, response) {
  
   response.render('new');

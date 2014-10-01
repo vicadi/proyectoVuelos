@@ -1,0 +1,18 @@
+h1 Nuevo Cliente
+ 
+form(method="POST", action="/cliente")
+ 
+  p Nombre:
+    input(type="text" name="nombre")
+ 
+  p Documento:
+    input(type="number" name="documento")
+ 
+  p Tipo de pago:
+    input(type="text" name="tipoPago")
+
+  p Vuelo:
+    input(type="text" name="vuelo")
+ 
+  p
+    button(type="submit") Enviar
