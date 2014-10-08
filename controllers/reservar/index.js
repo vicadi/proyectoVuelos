@@ -4,11 +4,11 @@ var app = module.exports = express();
 app.set('views', __dirname + '/views');
 
 //get
-app.get('/recervar', function(request, response) {
+app.get('/reservar', function(request, response) {
  
-  response.render('recervar', {
-    title: 'Recervas',
-    pRecervar: 'active'
+  response.render('reservar', {
+    title: 'Reservas',
+    pReservar: 'active'
   });
  
 });

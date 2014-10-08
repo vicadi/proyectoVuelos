@@ -11,23 +11,23 @@ html
     script(type='text/javascript', src='./js/bootstrap.js')
     script(type='text/javascript', src='./js/script.js')
     script(type='text/javascript', src='./js/apprise-v2.js')
-body
+ body
   #cabecera
     #login
       table
         tr
           form(method="POST", action="/login")
             td
-              input(type="text" name="usuario" placeholder='Usuario')
+              input(type="text" name="nickName" placeholder='Usuario')
             td
-              input(type="text" name="contraseña" placeholder='Contraseña')
+              input(type="text" name="contrasena" placeholder='Contraseña')
+            td
+              button(type="submit" class="btn btn-default btn-xs") Entrar
         tr
           td
             a(href='#' onclick="Apprise('Registrar');") Registrate
           td
             a(href='#' onclick="Apprise('Restaurar contraseña');") Olvidaste la contraseña
-          td
-            button(type="submit" class="btn btn-default btn-xs") Entrar
     a(href='/')
       #logo
           img(src='./images/logo.png' width='80%')
@@ -36,8 +36,8 @@ body
       ul.nav.nav-pills
         li(class=pVuelos)
           a(href='/') Vuelos
-        li(class=pRecervar)
-          a(href='/recervar') Recervar vuelos
+        li(class=pReservar)
+          a(href='/reservar') Reservar vuelos
         li(class=pCancelar)
           a(href='/cancelar') Cancelar vuelos
         li(class=pCliente)

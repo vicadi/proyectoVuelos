@@ -1,7 +1,5 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
-
-var Schema = require('mongoose').Schema;
+module.exports = function(mongoose){
+var Schema = mongoose.Schema;
 var vueloSchema = new Schema({
 	aerolinea : String,
 	origen : String,
@@ -11,6 +9,5 @@ var vueloSchema = new Schema({
     costoPasaje : Number,
 });
 
-var vuelo = mongoose.model('vuelo',vueloSchema);
-
-module.exports = vuelo;
+return mongoose.model('vuelo',vueloSchema);
+}

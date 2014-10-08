@@ -7,27 +7,23 @@ app.set('views', __dirname + '/views');
 app.get('/cliente', function(request, response) {
     
    response.render('cliente', {
-    title: 'Recervas',
+    title: 'Cancelar',
     pCliente: 'active'
   });
  
 });
 
-app.get('/cliente/new', function(request, response) {
- 
-  response.render('new');
- 
-});
-
 app.post('/cliente', function(request, response) {
  
-  var u = request.body;
+  var formulario = request.body;
  
   var newCliente= new db.cliente({
-    nombre : u.nombre,
-	  documento : u.documento,
-    tipoPago : u.tipoPago,
-    vuelo : u.vuelo
+    nombre : formulario.nombre,
+	  documento : formulario.documento,
+    tipoPago : formulario.tipoPago,
+    vuelo : formulario.vuelo,
+    contrasena : formulario.contrasena,
+    nickName : formulario.nickName
   });
 
  

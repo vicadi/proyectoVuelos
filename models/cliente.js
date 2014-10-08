@@ -5,7 +5,7 @@ var clienteSchema = new Schema({
 	documento : Number,
     tipoPago : String,
     vuelo : String,
-    contraseña : String,
+    contrasena : String,
     nickName : String
 });
 

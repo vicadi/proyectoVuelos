@@ -7,7 +7,7 @@ app.set('views', __dirname + '/views');
 app.get('/cancelar', function(request, response) {
  
   response.render('cancelar', {
-    title: 'Recervas',
+    title: 'Cancelar',
     pCancelar: 'active'
   });
  

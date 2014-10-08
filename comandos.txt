@@ -1,6 +1,7 @@
  stylus -c -w style.styl
 
 git rm -r 
+
 git add -A
 git commit -m 'commentario'
 git push

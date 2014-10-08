@@ -1,12 +1,14 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser')
 
 var models = require('./models');
 var cliente = require('./controllers/cliente');
 var home = require('./controllers/home');
-var recervar= require('./controllers/recervar');
+var reservar= require('./controllers/reservar');
 var cancelar= require('./controllers/cancelar');
+var autenticacion= require('./middlewares/autenticacion');
 
 var app = express();
 
@@ -19,16 +21,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cookieParser('secret'));
+
 app.use(cliente);
 app.use(home);
-app.use(recervar);
+app.use(reservar);
 app.use(cancelar);
+app.use(autenticacion);
 //get
-
-
-
-
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -60,40 +60,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
-
-app.get('/mockups/login', function(request, response) {
-
-  response.write('<html>');
-  response.write('<img src="./vuelos1.png" width="100%" height="100%"> >');
-  response.write('</html>');
-  response.end (); 
- 
-});
-app.get('/mockups/buscar-vuelo', function(request, response) {
- 
-  response.write('<html>');
-  response.write('<img src="./vuelos2.png" width="100%" height="100%"> >');
-  response.write('</html>');
-  response.end (); 
- 
-});
-app.get('/mockups/recervar-vuelo', function(request, response) {
- 
-  response.write('<html>');
-  response.write('<img src="./vuelos3.png" width="100%" height="100%"> >');
-  response.write('</html>');
-  response.end (); 
- 
-});
-app.get('/mockups/cancelar-vuelo', function(request, response) {
- 
-  response.write('<html>');
-  response.write('<img src="./vuelos4.png" width="100%" height="100%"> >');
-  response.write('</html>');
-  response.end (); 
-
-});
-
 
 module.exports = app;
