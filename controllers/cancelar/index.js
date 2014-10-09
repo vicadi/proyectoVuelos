@@ -8,7 +8,8 @@ app.get('/cancelar', function(request, response) {
  
   response.render('cancelar', {
     title: 'Cancelar',
-    pCancelar: 'active'
+    pCancelar: 'active',
+    sesion: request.session.cliente
   });
  
 });

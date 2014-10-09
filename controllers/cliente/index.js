@@ -7,8 +7,9 @@ app.set('views', __dirname + '/views');
 app.get('/cliente', function(request, response) {
     
    response.render('cliente', {
-    title: 'Cancelar',
-    pCliente: 'active'
+    title: 'Cliente',
+    pCliente: 'active',
+    sesion: request.session.cliente
   });
  
 });

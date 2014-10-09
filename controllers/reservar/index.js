@@ -8,7 +8,8 @@ app.get('/reservar', function(request, response) {
  
   response.render('reservar', {
     title: 'Reservas',
-    pReservar: 'active'
+    pReservar: 'active',
+    sesion: request.session.cliente
   });
  
 });

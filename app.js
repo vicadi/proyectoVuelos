@@ -1,8 +1,8 @@
 var express = require('express');
 var path = require('path');
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser')
-
+var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var models = require('./models');
 var cliente = require('./controllers/cliente');
 var home = require('./controllers/home');
@@ -21,7 +21,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cookieParser('secret'));
+ app.use(cookieParser());
+ app.use(session({secret: '1234567'}));
 
 app.use(cliente);
 app.use(home);

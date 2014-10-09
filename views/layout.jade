@@ -15,17 +15,24 @@ html
   #cabecera
     #login
       table
+       if sesion
+        tr
+         td Bienvenido/a #{sesion.nombre}
+        tr
+         td 
+           a(href='/logout') Salir
+       else
         tr
           form(method="POST", action="/login")
             td
               input(type="text" name="nickName" placeholder='Usuario')
             td
-              input(type="text" name="contrasena" placeholder='Contraseña')
+              input(type="password" name="contrasena" placeholder='Contraseña')
             td
               button(type="submit" class="btn btn-default btn-xs") Entrar
         tr
           td
-            a(href='#' onclick="Apprise('Registrar');") Registrate
+            a(href='/cliente') Registrate
           td
             a(href='#' onclick="Apprise('Restaurar contraseña');") Olvidaste la contraseña
     a(href='/')

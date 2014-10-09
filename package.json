@@ -19,6 +19,7 @@
   "jade": "~1.6.0",
   "stylus": "latest",
   "mongoose":"latest",
-  "cookie-parser":"latest"
+  "cookie-parser":"*",
+  "express-session":"*"
   }
 }

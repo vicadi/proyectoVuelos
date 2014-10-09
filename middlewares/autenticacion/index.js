@@ -1,12 +1,20 @@
 var express = require('express');
 var app = module.exports = express();
 
+app.get('/logout', function (req, res) {
+    req.session.destroy(function () {
+        res.redirect('/');
+    });
+});
+
 app.post('/login', function(req, res) {
 	authenticate(req.body.nickName, req.body.contrasena, function (err, cliente) {
         if (cliente) {
-                res.send("Authentication ok");
+        	    req.session.cliente = cliente;
+                res.redirect('/cliente');
         } else {
-                res.send(err.message);
+                req.session.err=err;
+                res.redirect('/');
         }
     });
 	});

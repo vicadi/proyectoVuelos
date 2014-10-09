@@ -1,40 +1,31 @@
 extends ../../../views/layout
 
 block content
-   h3 Nuevo Cliente
-   br
-   br
- 
-   form(method="POST", action="cliente")
+ if sesion
+   h4 Configuracion
+ else
+   h3 Registrar 
+   
+   form#cliente(method="POST", action="cliente")
  
     p Nombre:
      input(type="text" name="nombre")
-     br
-
+     
     p Nick:
      input(type="text" name="nickName")
-     br
-
+     
     p Contraseña:
      input(type="text" name="contrasena")
-     br
-
+     
     p Contraseña:
      input(type="text" name="contrasenar")
-     br
- 
+      
     p Documento:
      input(type="number" name="documento")
-     br
- 
+      
     p Tipo de pago:
      input(type="text" name="tipoPago")
-     br
-
-    p Vuelo:
-     input(type="text" name="vuelo")
-     br
- 
+   
     p
      button(type="submit") Enviar
-  
+

@@ -11,7 +11,8 @@ app.get('/', function(request, response) {
   response.render('home', {
     title: 'Home',
     pVuelos: 'active',
-    clientes: clientes
+    clientes: clientes,
+    sesion: request.session.cliente
   });
  
 	});
