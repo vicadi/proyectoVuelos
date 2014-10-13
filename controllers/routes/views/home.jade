@@ -1,0 +1,12 @@
+extends ../../../views/layout
+
+block content
+  h1 Clientes
+  each user in users
+    p
+      span #{user.nombre}
+      span #{user.documento}
+      span #{user.tipoPago}
+      span #{user.vuelo}
+      span #{user.contrasena}
+      span #{user.nickName}

@@ -1,35 +1,56 @@
 var express = require('express');
+var app = express();
+
+//modulos
 var path = require('path');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
-var models = require('./models');
-var cliente = require('./controllers/cliente');
-var home = require('./controllers/home');
-var reservar= require('./controllers/reservar');
-var cancelar= require('./controllers/cancelar');
-var autenticacion= require('./middlewares/autenticacion');
+var methodOverride = require('method-override');
+var passport = require('passport');
+var flash    = require('connect-flash');
+var bodyParser   = require('body-parser');
 
-var app = express();
+//models
+var models = require('./models');
+
+//controllers
+var users= require('./controllers/users');
+var vuelos = require('./controllers/vuelos');
+var rutas= require('./controllers/routes');
+
+
+// simula DELETE y PUT
+app.use(methodOverride());
+
+//bodyParser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // view engine setup
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
-//passport
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+//path del directorio public
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Sesiones y cokies
  app.use(cookieParser());
  app.use(session({secret: '1234567'}));
 
-app.use(cliente);
-app.use(home);
-app.use(reservar);
-app.use(cancelar);
-app.use(autenticacion);
+ //passport
+ require('./config/passport')(passport); // pass passport for configuration
+ app.use(passport.initialize());
+ app.use(passport.session()); // persistent login sessions
+ app.use(flash());
+
+
+
 //get
+app.use("/users",users);
+app.use("/vuelos",vuelos);
+app.use(rutas);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -14,7 +14,7 @@ if (!global.hasOwnProperty('db')) {
     mongoose: mongoose,
  
     //models
-    cliente:require('./cliente')(mongoose),
+    user:require('./user')(mongoose),
     destino:require('./destino')(mongoose),
     vuelo:require('./vuelo')(mongoose)
  

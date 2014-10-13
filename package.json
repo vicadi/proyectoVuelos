@@ -20,6 +20,11 @@
   "stylus": "latest",
   "mongoose":"latest",
   "cookie-parser":"*",
-  "express-session":"*"
+  "express-session":"*",
+  "passport" : "~0.1.17",     
+  "passport-local" : "~0.1.6",
+  "method-override": "~1.0.0",
+  "connect-flash" : "~0.1.1",   
+  "bcrypt-nodejs" : "latest"
   }
 }

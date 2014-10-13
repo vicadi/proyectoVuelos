@@ -1,0 +1,28 @@
+extends ../../../views/layout
+
+block content
+   h3 Registrar 
+   
+   form#cliente(method="POST", action="/signup")
+ 
+    p Nombre:
+     input(type="text" name="nombre")
+     
+    p Nick:
+     input(type="text" name="nickName")
+     
+    p Contraseña:
+     input(type="text" name="contrasena")
+     
+    p Contraseña:
+     input(type="text" name="contrasenar")
+      
+    p Documento:
+     input(type="number" name="documento")
+      
+    p Tipo de pago:
+     input(type="text" name="tipoPago")
+   
+    p
+     button(type="submit") Enviar
+

@@ -3,23 +3,25 @@ html
   head
     meta(charset="utf-8")
     title= title
-    link(rel='stylesheet', href='./css/style.css')
-    link(rel='stylesheet', href='./css/bootstrap.css')
-    link(rel='stylesheet', href='./css/apprise-v2.css')
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/bootstrap.css')
+    link(rel='stylesheet', href='/css/apprise-v2.css')
 
-    script(type='text/javascript', src='./js/jquery-1.10.2.js')
-    script(type='text/javascript', src='./js/bootstrap.js')
-    script(type='text/javascript', src='./js/script.js')
-    script(type='text/javascript', src='./js/apprise-v2.js')
+    script(type='text/javascript', src='/js/jquery-1.10.2.js')
+    script(type='text/javascript', src='/js/bootstrap.js')
+    script(type='text/javascript', src='/js/script.js')
+    script(type='text/javascript', src='/js/apprise-v2.js')
+ 
+ el error es #{message}
  body
   #cabecera
     #login
       table
        if sesion
-        tr
-         td Bienvenido/a #{sesion.nombre}
-        tr
-         td 
+         tr
+          td Bienvenido/a #{sesion.nickName}
+         tr
+          td 
            a(href='/logout') Salir
        else
         tr
@@ -32,22 +34,22 @@ html
               button(type="submit" class="btn btn-default btn-xs") Entrar
         tr
           td
-            a(href='/cliente') Registrate
+            a(href='/users/cliente') Registrate
           td
-            a(href='#' onclick="Apprise('Restaurar contraseña');") Olvidaste la contraseña
+            a(href='#') Olvidaste la contraseña
     a(href='/')
       #logo
-          img(src='./images/logo.png' width='80%')
+          img(src='/images/logo.png' width='80%')
   #contenedor
     #navegacion
       ul.nav.nav-pills
         li(class=pVuelos)
           a(href='/') Vuelos
         li(class=pReservar)
-          a(href='/reservar') Reservar vuelos
+          a(href='../vuelos/reservar') Reservar vuelos
         li(class=pCancelar)
-          a(href='/cancelar') Cancelar vuelos
+          a(href='../vuelos/cancelar') Cancelar vuelos
         li(class=pCliente)
-          a(href='/cliente') Cliente
+          a(href='../users/cliente') Cliente
       #principal
         block content
