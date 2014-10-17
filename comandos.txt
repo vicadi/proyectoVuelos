@@ -1,7 +1,28 @@
  stylus -c -w style.styl
 
+
+
 git rm -r 
 
 git add -A
 git commit -m 'commentario'
 git push
+
+
+
+npm config list
+
+npm config delete proxy
+npm config delete https-proxy
+
+npm config set proxy http://proxy.company.com:8080
+npm config set https-proxy http://proxy.company.com:8080
+
+
+export http_proxy=http://usuario:contraseña@proxy.dominio:puerto/
+export https_proxy=https://usuario:contraseña@proxy.dominio:puerto/
+unset http_proxy
+unset https_proxy
+
+sudo nano /etc/environment
+sudo nano /etc/apt/apt.conf

@@ -46,10 +46,12 @@ html
         li(class=pVuelos)
           a(href='/') Vuelos
         li(class=pReservar)
-          a(href='../vuelos/reservar') Reservar vuelos
+          a(href='/vuelos/reservar') Reservar vuelos
         li(class=pCancelar)
-          a(href='../vuelos/cancelar') Cancelar vuelos
+          a(href='/vuelos/cancelar') Cancelar vuelos
         li(class=pCliente)
-          a(href='../users/') Cliente
+          a(href='/users/') Cliente
+        li(class=pAdministrador)
+          a(href='/users/administrador') Administrador
       #principal
         block content
