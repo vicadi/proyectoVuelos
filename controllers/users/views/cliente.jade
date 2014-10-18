@@ -1,28 +1,45 @@
 extends ../../../views/layout
 
 block content
-   h3 Registrar 
+ #cliente
    
    form#cliente(method="POST", action="/signup")
- 
-    p Nombre:
-     input(type="text" name="nombre")
-     
-    p Nick:
-     input(type="text" name="nickName")
-     
-    p Contraseña:
-     input(type="text" name="contrasena")
-     
-    p Contraseña:
-     input(type="text" name="contrasenar")
-      
-    p Documento:
-     input(type="number" name="documento")
-      
-    p Tipo de pago:
-     input(type="text" name="tipoPago")
-   
-    p
-     button(type="submit") Enviar
+    table
+     tr
+      td(colspan="2")
+       h3 Registrar
+     tr
+      td
+       p Nombre:
+      td
+       input(type="text" name="nombre" class="form-control")
+     tr
+      td
+       p Nick:
+      td
+       input(type="text" name="nickName" class="form-control")
+     tr
+      td
+       p Contraseña:
+      td
+       input(type="text" name="contrasena" class="form-control")
+     tr
+      td
+       p Contraseña:
+      td
+       input(type="text" name="contrasenar" class="form-control")
+     tr
+      td
+       p Documento:
+      td
+       input(type="number" name="documento" class="form-control")
+     tr
+      td
+       p Tipo de pago:
+      td
+       input(type="text" name="tipoPago" class="form-control")
+     tr
+      td(colspan="2")   
+       p
+       button(type="submit" class="btn btn-danger btn-primary") Enviar
 

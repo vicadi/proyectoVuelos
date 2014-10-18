@@ -20,9 +20,20 @@ npm config set https-proxy http://proxy.company.com:8080
 
 
 export http_proxy=http://usuario:contraseña@proxy.dominio:puerto/
-export https_proxy=https://usuario:contraseña@proxy.dominio:puerto/
+export https_proxy=http://usuario:contraseña@proxy.dominio:puerto/
 unset http_proxy
 unset https_proxy
 
 sudo nano /etc/environment
 sudo nano /etc/apt/apt.conf
+
+
+  //h1 Clientes
+  //each user in users
+    //p
+      //span #{user.nombre}
+      //span #{user.documento}
+      //span #{user.tipoPago}
+      //span #{user.vuelo}
+      //span #{user.contrasena}
+      //span #{user.nickName}

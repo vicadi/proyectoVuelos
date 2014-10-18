@@ -24,8 +24,8 @@ app.set('views', __dirname + '/views');
 app.route('/login')
 
  	.post(passport.authenticate('local-login', {
-			successRedirect : '/', 
-			failureRedirect : '/users/cliente', 
+			successRedirect : '/users/cliente', 
+			failureRedirect : '/', 
 			failureFlash : true 
 		}));
 

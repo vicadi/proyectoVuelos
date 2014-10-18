@@ -1,12 +1,42 @@
 extends ../../../views/layout
 
 block content
-  h1 Clientes
-  each user in users
-    p
-      span #{user.nombre}
-      span #{user.documento}
-      span #{user.tipoPago}
-      span #{user.vuelo}
-      span #{user.contrasena}
-      span #{user.nickName}
+  #buscar
+   form(method="POST", action="/vuelos/buscar/Busqueda")
+    table
+     tr
+      td(colspan="2")
+       h3 Parámetros de Busqueda
+     tr
+      td
+       p Buscar por: 
+      td
+       select(name="seleccionBuscar" class="form-control")
+        option(value="seleccione" selected="selected") Seleccione una Opcion
+        option(value="aerolinea") Aerolinea
+        option(value="origen") Origen
+        option(value="destino") Destino
+        option(value="fecha") Fecha
+     tr
+      td
+       p Escriba Busqueda: 
+      td
+       input(type="text" name="busqueda" placeholder="Escriba aqui" class="form-control")
+     tr
+      td(colspan="2")
+       button(type="submit" class="btn btn-danger btn-primary") Buscar
+  #resultado
+   form(method="POST", action="/vuelos/buscar/seleccionBusqueda")
+    table
+     tr
+      td
+       p Lista de vuelos
+     tr
+      td#seleccioVuelos
+       select(name="seleccionVuelo" class="form-control" size="10" disabled)
+     tr
+      td
+       span *Seleccione un Vuelo
+     tr
+      td
+       button(type="submit" class="btn btn-danger btn-primary" disabled) Guardar
