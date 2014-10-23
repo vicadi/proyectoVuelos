@@ -7,18 +7,7 @@ app.set('views', __dirname + '/views');
  app.route('/')
 
  .get(function(req, res) {
- 
- db.user.find().exec(function (error, users) {
-
-  res.render('home', {
-    title: 'Home',
-    pVuelos: 'active',
-    users: users,
-    message: req.flash('message'),
-    sesion: req.user
-  });
- 
-  });
+      res.redirect('/vuelos');
       });
 
 app.route('/login')

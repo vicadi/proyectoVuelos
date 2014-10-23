@@ -1,4 +1,200 @@
 extends ../../../views/layout
 
 block content
-  h1 Admistrador
+  #menuAdmin 
+   ul.nav.nav-pills.nav-stacked
+     li#bNuevoCliente
+       a Nuevo cliente
+     li#bEditarCliente
+       a Editar vuelo
+     li#bNuevoVuelo
+       a Nuevo vuelo
+     li#bEditarVuelo
+       a Editar vuelo
+  #administrar
+   #nuevoCliente
+      form#cliente(method="POST", action="/signup")
+       table
+        tr
+         td(colspan="2")
+          h3 Nuevo cliente
+        tr
+         td
+          p Nombre:
+         td
+          input(type="text" name="nombre" class="form-control")
+        tr
+         td
+          p Nick:
+         td
+          input(type="text" name="nickName" class="form-control")
+        tr
+         td
+          p Contraseña:
+         td
+          input(type="text" name="contrasena" class="form-control")
+        tr
+         td
+          p Contraseña:
+         td
+          input(type="text" name="contrasenar" class="form-control")
+        tr
+         td
+          p Documento:
+         td
+          input(type="number" name="documento" class="form-control")
+        tr
+         td
+          p Tipo de pago:
+         td
+          input(type="text" name="tipoPago" class="form-control")
+        tr
+         td(colspan="2")   
+          p
+          button(type="submit" class="btn btn-danger btn-primary") Enviar
+
+   #editarCliente
+      h3 Editar cliente
+      select(name="clientes" class="form-control")
+        option(selected="selected") Clientes
+      form#cliente(method="POST", action="/signup")
+       table
+        tr
+         td(colspan="2")
+        tr
+         td
+          p Nombre:
+         td
+          input(type="text" name="nombre" class="form-control")
+        tr
+         td
+          p Nick:
+         td
+          input(type="text" name="nickName" class="form-control")
+        tr
+         td
+          p Contraseña:
+         td
+          input(type="text" name="contrasena" class="form-control")
+        tr
+         td
+          p Contraseña:
+         td
+          input(type="text" name="contrasenar" class="form-control")
+        tr
+         td
+          p Documento:
+         td
+          input(type="number" name="documento" class="form-control")
+        tr
+         td
+          p Tipo de pago:
+         td
+          input(type="text" name="tipoPago" class="form-control")
+        tr
+         td(colspan="2")   
+          p
+          button(type="submit" class="btn btn-danger btn-primary") Enviar
+   #nuevoVuelo
+      form#Vuelo(method="POST", action="/signup")
+       table
+        tr
+         td(colspan="2")
+          h3 Nuevo vuelo
+        tr
+         td
+          p Nombre de vuelo:
+         td
+          input(type="text" name="nVuelo" class="form-control")
+        tr
+         td
+          p Aerolinea:
+         td
+          input(type="text" name="aerolinea" class="form-control")
+        tr
+         td
+          p Origen:
+         td
+          input(type="text" name="origen" class="form-control")
+        tr
+         td
+          p Destino:
+         td
+          input(type="text" name="destino" class="form-control")
+        tr
+         td
+          p Numero de pasajeros:
+         td
+          input(type="number" name="nPasajeros" class="form-control")
+        tr
+         td
+          p Fecha de vuelo:
+         td
+          input(type="date" name="fechaVuelo" class="form-control")
+        tr
+         td
+          p Hora de vuelo:
+         td
+          input(type="text" name="horaVuelo" class="form-control")
+        tr
+         td
+          p Precio del vuelo:
+         td
+          input(type="number" name="precioVuelo" class="form-control")
+        tr
+         td(colspan="2")   
+          p
+          button(type="submit" class="btn btn-danger btn-primary") Enviar
+   #editarVuelo 
+      h3 Editar vuelo
+      select(name="vuelos" class="form-control")
+        option(selected="selected") Vuelos
+      form#Vuelo(method="POST", action="/signup")
+       table
+        tr
+         td(colspan="2")
+          h3 Nuevo vuelo
+        tr
+         td
+          p Nombre de vuelo:
+         td
+          input(type="text" name="nVuelo" class="form-control")
+        tr
+         td
+          p Aerolinea:
+         td
+          input(type="text" name="aerolinea" class="form-control")
+        tr
+         td
+          p Origen:
+         td
+          input(type="text" name="origen" class="form-control")
+        tr
+         td
+          p Destino:
+         td
+          input(type="text" name="destino" class="form-control")
+        tr
+         td
+          p Numero de pasajeros:
+         td
+          input(type="number" name="nPasajeros" class="form-control")
+        tr
+         td
+          p Fecha de vuelo:
+         td
+          input(type="date" name="fechaVuelo" class="form-control")
+        tr
+         td
+          p Hora de vuelo:
+         td
+          input(type="text" name="horaVuelo" class="form-control")
+        tr
+         td
+          p Precio del vuelo:
+         td
+          input(type="number" name="precioVuelo" class="form-control")
+        tr
+         td(colspan="2")   
+          p
+          button(type="submit" class="btn btn-danger btn-primary") Enviar

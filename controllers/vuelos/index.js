@@ -3,6 +3,22 @@ var app = module.exports = express();
  
 app.set('views', __dirname + '/views');
 
+app.route('/')
+
+ .get(function(req, res) {
+ 
+ db.user.find().exec(function (error, users) {
+
+  res.render('vuelos', {
+    title: 'vuelos',
+    pVuelos: 'active',
+    users: users,
+    message: req.flash('message'),
+    sesion: req.user
+  });
+ 
+  });
+      });
 
 app.route('/cancelar')
   .get(function(req, res) {
