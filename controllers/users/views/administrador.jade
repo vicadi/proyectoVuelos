@@ -1,19 +1,19 @@
 extends ../../../views/layout
-
+ 
 block content
   #menuAdmin 
    ul.nav.nav-pills.nav-stacked
      li#bNuevoCliente
        a Nuevo cliente
      li#bEditarCliente
-       a Editar vuelo
+       a Editar cliente
      li#bNuevoVuelo
        a Nuevo vuelo
      li#bEditarVuelo
        a Editar vuelo
   #administrar
    #nuevoCliente
-      form#cliente(method="POST", action="/signup")
+      form#cliente(method="POST", action="users/new")
        table
         tr
          td(colspan="2")
@@ -55,9 +55,12 @@ block content
 
    #editarCliente
       h3 Editar cliente
-      select(name="clientes" class="form-control")
+      form(id="fClientes" action="administrador" method="POST")
+       select(id="sClientes" name="clientes" class="form-control")
         option(selected="selected") Clientes
-      form#cliente(method="POST", action="/signup")
+        each user in users
+         option(value=user.nickName) #{user.nickName}
+      form#cliente(method="POST", action="/users/edit")
        table
         tr
          td(colspan="2")

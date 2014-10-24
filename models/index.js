@@ -15,7 +15,6 @@ if (!global.hasOwnProperty('db')) {
  
     //models
     user:require('./user')(mongoose),
-    destino:require('./destino')(mongoose),
     vuelo:require('./vuelo')(mongoose)
  
     // agregar más modelos aquí en caso de haberlos

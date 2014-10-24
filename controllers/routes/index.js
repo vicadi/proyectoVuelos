@@ -9,21 +9,13 @@ app.set('views', __dirname + '/views');
  .get(function(req, res) {
       res.redirect('/vuelos');
       });
+ 
+  app.route('/login')
 
-app.route('/login')
-
- 	.post(passport.authenticate('local-login', {
-			successRedirect : '/users/cliente', 
-			failureRedirect : '/', 
-			failureFlash : true 
-		}));
-
- app.route('/signup')
-
-  .post(passport.authenticate('local-signup', {
-      successRedirect : '/', // redirect to the secure profile section
-      failureRedirect : '/users/cliente', // redirect back to the signup page if there is an error
-      failureFlash : true // allow flash messages
+  .post(passport.authenticate('local-login', {
+      successRedirect : '/users/cliente', 
+      failureRedirect : '/', 
+      failureFlash : true 
     }));
 
 app.route('/logout')

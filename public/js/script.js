@@ -1,4 +1,5 @@
 $(document).ready(function(){
+//Menu admin
     $('#administrar #nuevoCliente').show();
     $('#administrar #nuevoCliente').addClass('active');
     $('#menuAdmin li#bNuevoCliente').addClass('active');
@@ -46,4 +47,10 @@ $(document).ready(function(){
 
       });
     });
+
+//recargar formulario
+$('#editarCliente #sClientes').change(function( ) {
+       $('#editarCliente #fClientes').submit();
+  });
 });
+

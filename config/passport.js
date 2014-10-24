@@ -40,7 +40,7 @@ module.exports = function(passport) {
                     return done(null, null, req.flash('message', 'Oops! Wrong password.'));
 
                 else
-                    return done(null, user, req.flash('message', 'Bienvenido'));
+                    return done(null, user, req.flash('message', 'Welcome'));
             });
         });
 
@@ -67,7 +67,7 @@ module.exports = function(passport) {
                         return done(err);
 
                     if (user) {
-                        return done(null, false, req.flash('message', 'That email is already taken.'));
+                        return done(null, false, req.flash('message', 'That nickName is already taken.'));
                     } else {
 
                         var newUser= new db.user();
@@ -79,7 +79,7 @@ module.exports = function(passport) {
     						 if (error)
                                 return done(error);
 
-                            return done(null, user);
+                            return done(null, false, req.flash('message', 'new user created'));
 
     						});
 
