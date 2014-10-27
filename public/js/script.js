@@ -47,10 +47,26 @@ $(document).ready(function(){
 
       });
     });
+        var socket = io();
+
+            socket.on('userSocketServer', function(user){
+            $("#fEditCliente input[name='nickName'] ").val(user.nickName);
+            $("#fEditCliente input[name='nombre'] ").val(user.nombre);
+            $("#fEditCliente input[name='tipoPago'] ").val(user.tipoPago);
+            $("#fEditCliente input[name='documento'] ").val(user.documento);
+            });
+
 
 //recargar formulario
-$('#editarCliente #sClientes').change(function( ) {
-       $('#editarCliente #fClientes').submit();
+$('#editarCliente #nombreUser').change(function( ) {
+            var nombreSocketCliente = $('#editarCliente #nombreUser').val();
+            socket.emit('nombreSocketUser', nombreSocketCliente);
+            $("#fEditCliente button").prop('disabled', false);
+            if(nombreSocketCliente=="vacio"){
+              $("#fEditCliente button").prop('disabled', true);
+            }
+            
   });
-});
 
+
+});

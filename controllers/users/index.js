@@ -1,6 +1,7 @@
 var express = require('express');
 var app = module.exports = express();
 var passport = require('passport');
+var crud = require("./crud");
  
 app.set('views', __dirname + '/views');
 
@@ -44,13 +45,33 @@ app.route('/')
     });
   });
 
- app.route('/new')
+//new users
+  app.route('/new')
+  .post(function(req,res){
+    crud.create(req, res, function(err, user, flash){
+       if(err){
+        res.redirect("/");
+       }if(user){
+        res.redirect("/users");
+       }else{
+        res.redirect("/users/administrador");
+       }
+  });
+  });
 
-  .post(passport.authenticate('local-signup', {
-      successRedirect : '/', // redirect to the secure profile section
-      failureRedirect : '/users', // redirect back to the signup page if there is an error
-      failureFlash : true // allow flash messages
-    }));
+//edit users
+  app.route('/edit')
+  .post(function(req,res){
+    crud.update(req, res, function(err, user, flash){
+       if(err){
+        res.redirect("/");
+       }if(user){
+        res.redirect("/users");
+       }else{
+        res.redirect("/users/administrador");
+       }
+  });
+  });
 
   app.route('/*')
   .get(isAuthenticated,function(req, res) {

@@ -13,7 +13,7 @@ block content
        a Editar vuelo
   #administrar
    #nuevoCliente
-      form#cliente(method="POST", action="users/new")
+      form#cliente(method="POST", action="/users/new")
        table
         tr
          td(colspan="2")
@@ -32,12 +32,12 @@ block content
          td
           p Contraseña:
          td
-          input(type="text" name="contrasena" class="form-control")
+          input(type="password" name="contrasena" class="form-control")
         tr
          td
-          p Contraseña:
+          p Repite contraseña:
          td
-          input(type="text" name="contrasenar" class="form-control")
+          input(type="password" name="contrasenar" class="form-control")
         tr
          td
           p Documento:
@@ -55,12 +55,11 @@ block content
 
    #editarCliente
       h3 Editar cliente
-      form(id="fClientes" action="administrador" method="POST")
-       select(id="sClientes" name="clientes" class="form-control")
-        option(selected="selected") Clientes
+       select(id="nombreUser" name="clientes" class="form-control")
+        option(selected="selected" value="vacio") Escoja uno......
         each user in users
          option(value=user.nickName) #{user.nickName}
-      form#cliente(method="POST", action="/users/edit")
+      form#fEditCliente(method="POST", action="/users/edit")
        table
         tr
          td(colspan="2")
@@ -76,14 +75,14 @@ block content
           input(type="text" name="nickName" class="form-control")
         tr
          td
-          p Contraseña:
+          p Nueva contraseña:
          td
-          input(type="text" name="contrasena" class="form-control")
+          input(type="password" name="contrasena" class="form-control")
         tr
          td
-          p Contraseña:
+          p Repite Contraseña:
          td
-          input(type="text" name="contrasenar" class="form-control")
+          input(type="password" name="contrasenar" class="form-control")
         tr
          td
           p Documento:
@@ -97,7 +96,7 @@ block content
         tr
          td(colspan="2")   
           p
-          button(type="submit" class="btn btn-danger btn-primary") Enviar
+          button(type="submit" class="btn btn-danger btn-primary" disabled) Enviar
    #nuevoVuelo
       form#Vuelo(method="POST", action="/signup")
        table

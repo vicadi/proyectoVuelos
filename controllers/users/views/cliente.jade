@@ -2,7 +2,7 @@ extends ../../../views/layout
 
 block content
  #cliente
-   form#cliente(method="POST", action="new")
+   form#cliente(method="POST", action="./new")
     table
      tr
       td(colspan="2")
@@ -21,12 +21,12 @@ block content
       td
        p Contraseña:
       td
-       input(type="text" name="contrasena" class="form-control")
+       input(type="password" name="contrasena" class="form-control")
      tr
       td
-       p Contraseña:
+       p Repite contraseña:
       td
-       input(type="text" name="contrasenar" class="form-control")
+       input(type="password" name="contrasenar" class="form-control")
      tr
       td
        p Documento:
