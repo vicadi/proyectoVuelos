@@ -12,6 +12,7 @@ block content
      li#bEditarVuelo
        a Editar vuelo
   #administrar
+   input#estado(type="hidden" value=estado)
    #nuevoCliente
       form#cliente(method="POST", action="/users/new")
        table
@@ -61,8 +62,7 @@ block content
          option(value=user.nickName) #{user.nickName}
       form#fEditCliente(method="POST", action="/users/edit")
        table
-        tr
-         td(colspan="2")
+        input(type="hidden" name="nickNameOriginal")
         tr
          td
           p Nombre:
@@ -95,10 +95,11 @@ block content
           input(type="text" name="tipoPago" class="form-control")
         tr
          td(colspan="2")   
-          p
-          button(type="submit" class="btn btn-danger btn-primary" disabled) Enviar
+          button(type="submit" class="btn btn-primary" disabled) Actualizar
+      button#eliminarUser(onclick="eliminarUser()" class="btn btn-danger" disabled) Eliminar
+
    #nuevoVuelo
-      form#Vuelo(method="POST", action="/signup")
+      form#Vuelo(method="POST" action="/vuelos/new")
        table
         tr
          td(colspan="2")
@@ -151,7 +152,7 @@ block content
       h3 Editar vuelo
       select(name="vuelos" class="form-control")
         option(selected="selected") Vuelos
-      form#Vuelo(method="POST", action="/signup")
+      form#Vuelo(method="POST", action="/vuelos/edit")
        table
         tr
          td(colspan="2")

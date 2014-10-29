@@ -3,9 +3,9 @@ html
   head
     meta(charset="utf-8")
     title= title
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/style.css')
     link(rel='stylesheet', href='/css/myBootstrap.css')
-    link(rel='stylesheet', href='/css/bootstrap.min.css')
 
 
     script(type='text/javascript', src='/js/jquery-1.10.2.js')
@@ -35,9 +35,7 @@ html
               button(type="submit" class="btn btn-default btn-xs") Entrar
         tr
           td
-            a(href='/users/') Registrate
-          td
-            a(href='#') Olvidaste la contraseña
+            a(href='/users') Registrate
     a(href='/')
       #logo
           img(src='/images/logo.png' width='80%')
@@ -51,9 +49,9 @@ html
         li(class=pCancelar)
           a(href='/vuelos/cancelar') Cancelar vuelos
         li(class=pCliente)
-          a(href='/users/') Cliente
+          a(href='/users') Cliente
         if sesion && sesion.nickName=="admin"
          li(class=pAdministrador)
-          a(href='/users/administrador') Administrador
+          a(href='/users/administrador/newCliente') Administrador
       #principal
         block content

@@ -1,8 +1,55 @@
 extends ../../../views/layout
 
 block content
- #cliente
-   form#cliente(method="POST", action="./new")
+  if sesion
+   #menuAdminUser
+    ul.nav.nav-pills.nav-stacked
+     li#bEditarMisVuelos
+       a Editar mis vuelos
+     li#bEditarMiPerfil
+       a Editar mi perfil
+   #administrarUser
+    #editarMisVuelos
+    #editarMiPerfil
+      form#fEditMyPerfil(method="POST", action="/users/edit")
+       table
+        tr
+         td
+          p Nombre:
+         td
+          input(type="text" name="nombre" value=sesion.nombre class="form-control")
+        tr
+         td
+          p Nick:
+         td
+          input(type="text" name="nickName" value=sesion.nickName class="form-control")
+        tr
+         td
+          p Nueva contraseña:
+         td
+          input(type="password" name="contrasena" class="form-control")
+        tr
+         td
+          p Repite Contraseña:
+         td
+          input(type="password" name="contrasenar" class="form-control")
+        tr
+         td
+          p Documento:
+         td
+          input(type="number" name="documento" value=sesion.documento class="form-control")
+        tr
+         td
+          p Tipo de pago:
+         td
+          input(type="text" name="tipoPago" value=sesion.tipoPago class="form-control")
+        tr
+         td(colspan="2")   
+          button(type="submit" class="btn btn-primary") Actualizar
+      button#eliminarMiPerfil(onclick="eliminarMiPerfil()" class="btn btn-danger") Eliminar mi perfil
+  else
+   #cliente
+   form#cliente(method="POST", action="/users/new")
     table
      tr
       td(colspan="2")
@@ -41,4 +88,3 @@ block content
       td(colspan="2")   
        p
        button(type="submit" class="btn btn-danger btn-primary") Enviar
-

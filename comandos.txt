@@ -1,4 +1,4 @@
- stylus -c -w style.styl
+stylus -c -w style.styl
 
 
 
@@ -23,6 +23,9 @@ export http_proxy=http://usuario:contraseña@proxy.dominio:puerto/
 export https_proxy=http://usuario:contraseña@proxy.dominio:puerto/
 unset http_proxy
 unset https_proxy
+
+$ git config --global http.proxy http://direccion_ip_proxy:puerto
+$ git config --global --unset http.proxy
 
 sudo nano /etc/environment
 sudo nano /etc/apt/apt.conf
