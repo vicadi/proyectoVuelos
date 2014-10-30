@@ -7,5 +7,11 @@ module.exports = function(io) {
             io.emit('userSocketServer', user);
         	});
         });
+        socket.on('nombreSocketVuelo', function(nVuelo){
+             db.vuelo.findOne({nVuelo: nVuelo},
+             	function (err, vuelo) {
+            io.emit('VueloSocketServer', vuelo);
+        	});
+        });
     });
 };

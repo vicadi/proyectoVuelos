@@ -2,7 +2,6 @@ var express = require('express');
 var app = module.exports = express();
 var passport = require('passport');
 var crud = require("./crud");
-var estadoAdmin;
  
 app.set('views', __dirname + '/views');
 
@@ -19,18 +18,19 @@ app.route('/')
 
   app.route('/administrador/:estadoAdmin')
   .get(isAdmin,function(req, res) {
-    estadoAdmin = req.params.estadoAdmin;
+    req.session.estadoAdmin = req.params.estadoAdmin;
     res.redirect("/users/administrador");
   });
 
   app.route('/administrador')
   .get(isAdmin,function(req, res) {
-    crud.read(req, res, function(err, users, flash){
+    crud.read(req, res, function(err, users, vuelos, flash){
      res.render('administrador', {
         title: 'Administrador',
         pAdministrador: 'active',
-        estado : estadoAdmin,
+        estado : req.session.estadoAdmin,
         users : users,
+        vuelos : vuelos,
         message: req.flash('message'),
         sesion: req.user
     });
@@ -46,7 +46,7 @@ app.route('/')
        }if(user){
         res.redirect("/users");
        }else{
-        estadoAdmin="newCliente";
+        req.session.estadoAdmin="newCliente";
         res.redirect("/users/administrador");
        }
   });
@@ -54,36 +54,37 @@ app.route('/')
 
 //edit users
   app.route('/edit')
-  .post(function(req,res){
+  .post(isAuthenticated, function(req,res){
     crud.update(req, res, function(err, user, flash){
       if(err){
         res.redirect("/");
        }if(user){
         res.redirect("/users");
        }else{
+        req.session.estadoAdmin="editCliente";
         res.redirect("/users/administrador");
-        estadoAdmin="editCliente";
        }
   });
   });
 
   //delete users  
   app.route('/delete/:nickName')
-  .get(isAdmin, function(req,res){
-    crud.deleteUser(req, res, function(err, user, flash){
+  .get(isAuthenticated, function(req,res){
+    crud.deleteUser(req, res, function(err, flash){
        if(err){
         res.redirect("/");
-       }if(user){
-        res.redirect("/users");
-       }else{
+       }if(req.user)
+       if(req.user.nickName=="admin"){
+        req.session.estadoAdmin="editCliente";
         res.redirect("/users/administrador");
-        estadoAdmin="editCliente";
+       }else{
+        res.redirect('/');
        }
   });
   });
 
   app.route('/*')
-  .get(isAuthenticated,function(req, res) {
+  .get(isAuthenticated, function(req, res) {
     
    res.render('cliente', {
       title: 'Cliente',

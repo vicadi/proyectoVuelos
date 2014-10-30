@@ -1,8 +1,4 @@
 $(document).ready(function(){
-//Menu admin User
-    $('#administrarUser #editarMisVuelos').show();
-    $('#administrarUser #editarMisVuelos').addClass('active');
-    $('#menuAdminUser li#bEditarMisVuelos').addClass('active');
 
     $('#menuAdminUser li#bEditarMisVuelos').click(function( ) {
       $('#administrarUser .active').hide(function(){
@@ -82,8 +78,18 @@ $(document).ready(function(){
             $('#administrar #editarCliente').addClass('active');
             $('#menuAdmin li#bEditarCliente').addClass('active');
         }
+         if($('#administrar #estado').val()=="newVuelo"){
+            $( "#administrar #nuevoVuelo" ).show();
+            $('#administrar #nuevoVuelo').addClass('active');
+            $('#menuAdmin li#bNuevoVuelo').addClass('active');
+        }
+         if($('#administrar #estado').val()=="editVuelo"){
+            $( "#administrar #editarVuelo" ).show();
+            $('#administrar #editarVuelo').addClass('active');
+            $('#menuAdmin li#bEditarVuelo').addClass('active');
+        }
 
-//recibe info del socket y cambia los valores de lso input
+//recibe info del socket y cambia los valores de los input
         var socket = io();
 
             socket.on('userSocketServer', function(user){
@@ -92,6 +98,11 @@ $(document).ready(function(){
             $("#fEditCliente input[name='nombre'] ").val(user.nombre);
             $("#fEditCliente input[name='tipoPago'] ").val(user.tipoPago);
             $("#fEditCliente input[name='documento'] ").val(user.documento);
+            });
+
+            socket.on('VueloSocketServer', function(vuelo){
+            $("#fEditVuelo input[name='nVuelo'] ").val(vuelo.nVuelo);
+            $("#fEditVuelo input[name='nVueloOriginal'] ").val(vuelo.nVuelo);
             });
 
 
@@ -126,12 +137,34 @@ $('#editarCliente #nombreUser').change(function( ) {
        $("#fEditCliente input[name='documento'] ").prop('disabled', false);
      }     
   });
+
+$('#editarVuelo #nombreVuelo').change(function( ) {
+    var nombreSocketVuelo = $('#editarVuelo #nombreVuelo').val();
+     socket.emit('nombreSocketVuelo', nombreSocketVuelo);
+     $("#fEditVuelo button").prop('disabled', false);
+     $("button#eliminarVuelo").prop('disabled', false);
+    if(nombreSocketVuelo=="vacio"){
+        $("#fEditVuelo button").prop('disabled', true);
+        $("button#eliminarVuelo").prop('disabled', true);
+        $("#fEditVuelo input[name='nVueloOriginal']").val("");
+        $("#fEditVuelo input[name='nVuelo'] ").val("");
+    }
 });
+
+});
+
 function eliminarUser(){
-    window.locationf="/user/delete/"+$('#editarCliente #nombreUser').val();
-    if(confirm("¿Seguro que quieres eliminar a "+$('#editarCliente #nombreUser').val()+"?")) {
-
-        document.location.href= "/users/delete/"+$('#editarCliente #nombreUser').val();
-
+    if(confirm("¿Seguro que quieres eliminar a "+$("#fEditCliente input[name='nickNameOriginal']").val()+"?")) {
+        document.location.href= "/users/delete/"+$("#fEditCliente input[name='nickNameOriginal']").val();
 }
+}
+function eliminarMiPerfil(){
+    if(confirm("¿Seguro que quieres eliminar tu perfil?")){
+        document.location.href= "/users/delete/MiPerfil";
+    } 
+}
+function eliminarVuelo(){
+    if(confirm("¿Seguro que quieres eliminar el vuelo"+$("#fEditVuelo input[name='nVueloOriginal']").val()+"?")){
+        document.location.href= "/vuelos/delete/"+$("#fEditVuelo input[name='nVueloOriginal']").val();
+    } 
 }

@@ -128,7 +128,7 @@ block content
          td
           p Numero de pasajeros:
          td
-          input(type="number" name="nPasajeros" class="form-control")
+          input(type="number" name="numeroPasajeros" class="form-control")
         tr
          td
           p Fecha de vuelo:
@@ -150,13 +150,13 @@ block content
           button(type="submit" class="btn btn-danger btn-primary") Enviar
    #editarVuelo 
       h3 Editar vuelo
-      select(name="vuelos" class="form-control")
-        option(selected="selected") Vuelos
-      form#Vuelo(method="POST", action="/vuelos/edit")
+       select(id="nombreVuelo" name="vuelos" class="form-control")
+        option(selected="selected" value="vacio") Escoja uno......
+        each vuelo in vuelos
+         option(value=vuelo.nVuelo) #{vuelo.nVuelo}
+      form#fEditVuelo(method="POST", action="/vuelos/edit")
        table
-        tr
-         td(colspan="2")
-          h3 Nuevo vuelo
+        input(type="hidden" name="nVueloOriginal")
         tr
          td
           p Nombre de vuelo:
@@ -200,4 +200,5 @@ block content
         tr
          td(colspan="2")   
           p
-          button(type="submit" class="btn btn-danger btn-primary") Enviar
+          button(type="submit" class="btn btn-primary" disabled) Editar vuelo
+      button#eliminarVuelo(onclick="eliminarVuelo()" class="btn btn-danger" disabled) Eliminar

@@ -1,4 +1,4 @@
-// models/index.js
+ // models/index.js
 if (!global.hasOwnProperty('db')) {
  
   var mongoose = require('mongoose');
@@ -16,10 +16,9 @@ if (!global.hasOwnProperty('db')) {
     //models
     user:require('./user')(mongoose),
     vuelo:require('./vuelo')(mongoose)
- 
+    
     // agregar más modelos aquí en caso de haberlos
   };
- 
 }
  
 module.exports = global.db;
