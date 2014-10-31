@@ -6,12 +6,12 @@ app.set('views', __dirname + '/views');
 
 app.route('/')
   .get(function(req, res) {
-    res.render('vuelos', {
-      title: 'vuelos',
-      pVuelos: 'active',
-      message: req.flash('message'),
-      sesion: req.user
-    });
+        res.render('vuelos', {
+          title: 'vuelos',
+          pVuelos: 'active',
+          message: req.flash('message'),
+          sesion: req.user
+        });
  });
 
 //solo admin
@@ -61,14 +61,6 @@ app.route('/cancelar')
    });
   });
 
-app.route('/reservar')
-  .get(function(req, res) {
-   res.render('reservar', {
-    title: 'Reservas',
-    pReservar: 'active',
-    sesion: req.user
-   });
-  });
 
 function isAdmin(req, res, next) {
   if(req.user){

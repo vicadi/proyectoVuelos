@@ -33,13 +33,34 @@ module.exports.create = function(req, res, done) {
 }
 
 module.exports.read = function(req, res, done) {
-
+   db.vuelo.find().distinct("aerolinea", function (error, vuelos) {
+   		if (error){
+            return done(error);          
+        }else{
+            return done(null, vuelos);
+        }
+   });
 }
+
 module.exports.update = function (req, res, done) {
     var nVuelo=req.body.nVueloOriginal;
     var updateVuelo= {};
         if(req.body.nVuelo)
-            updateVuelo.nVuelo = req.body.nVuelo;
+			updateVuelo.nVuelo = nVuelo;
+		if(req.body.aerolinea)
+			updateVuelo.aerolinea = req.body.aerolinea;
+		if(req.body.origen)
+			updateVuelo.origen = req.body.origen;
+		if(req.body.destino)
+			updateVuelo.destino = req.body.destino;
+		if(req.body.numeroPasajeros)
+			updateVuelo.numeroPasajeros = req.body.numeroPasajeros;
+		if(req.body.fechaVuelo)
+			updateVuelo.fechaVuelo = req.body.fechaVuelo;
+		if(req.body.horaVuelo)
+			updateVuelo.horaVuelo = req.body.horaVuelo;
+		if(req.body.precioVuelo)
+			updateVuelo.precioVuelo = req.body.precioVuelo;
 
     db.vuelo.findOneAndUpdate({ "nVuelo" : nVuelo},{$set:updateVuelo},
         function(error, vuelo){

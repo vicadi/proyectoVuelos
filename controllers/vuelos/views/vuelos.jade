@@ -1,38 +1,54 @@
 extends ../../../views/layout
 
 block content
+  button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal") boton
+  a(type="button" class="btn btn-primary" data-toggle="modal" href="#myModal") link
+  
+  .modal.fade(id="myModal" role="dialog" tabindex="-1" aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button(type="button" class="close" data-dismiss="modal")
+            span(aria-hidden="true") &times;
+          h4.modal-title(id="myModalLabel">Modal title) titulo
+        .modal-body
+          p ...
+        .modal-footer
+          button(type="button" class="btn btn-default" data-dismiss="modal") Close
+          button(type="button" class="btn btn-primary") Save changes
+
+
   #buscar
-   form(method="POST", action="/vuelos/buscar/Busqueda")
     table
      tr
       td(colspan="2")
-       h3 Parámetros de Busqueda
+       h3 Busqueda
      tr
       td
        p Buscar por: 
       td
-       select(name="seleccionBuscar" class="form-control")
-        option(value="aerolinea" selected="selected") Aerolinea
+       select#seleccionBuscar(name="seleccionBuscar" class="form-control")
+        option(value="vacio") Seleccionar
+        option(value="aerolinea") Aerolinea
+        option(value="nVuelo") Nombre de vuelos
         option(value="origen") Origen
         option(value="destino") Destino
-        option(value="fecha") Fecha
+        option(value="fechaVuelo") Fecha
+            console.log(vuelos[0].aerolinea)
      tr
       td
-       p Escriba Busqueda: 
+       p Seleccione: 
       td
-       input(type="text" name="busqueda" placeholder="Escriba aqui" class="form-control")
-     tr
-      td(colspan="2")
-       button(type="submit" class="btn btn-danger btn-primary") Buscar
+       select(id="seleccionVuelo" name="seleccionVuelo" class="form-control")
   #resultado
-   form(method="POST", action="/vuelos/buscar/seleccionBusqueda")
+   form(method="POST", action="/vuelos/guardar")
     table
      tr
       td
        p Lista de vuelos
      tr
       td#seleccioVuelos
-       select(name="seleccionVuelo" class="form-control" size="10" disabled)
+       select#vuelos(name="vuelos" class="form-control" size="10")
      tr
       td
        span *Seleccione un Vuelo

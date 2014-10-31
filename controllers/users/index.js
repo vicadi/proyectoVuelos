@@ -33,8 +33,8 @@ app.route('/')
         vuelos : vuelos,
         message: req.flash('message'),
         sesion: req.user
+      });
     });
-  });
   });
   
 //new users
