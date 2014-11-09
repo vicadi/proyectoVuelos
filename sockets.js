@@ -16,11 +16,14 @@ module.exports = function(io) {
                 io.emit('ArrayVueloSocketServer', vuelos);
             });
         });
-        socket.on('buscarSocketVuelo', function(atributo,buscar){
-        var consulta={};
-        consulta[atributo]=buscar;
-        db.vuelo.find(consulta).lean().exec(function (error, vuelos) {
+        socket.on('buscarSocketVuelo', function(parametrosBusqueda){
+            db.vuelo.find(parametrosBusqueda).lean().exec(function (error, vuelos) {
             io.emit('buscarVueloSocketServer', vuelos);
+            });
+        });
+        socket.on('detallesVuelosSocket', function(nVuelo){
+             db.vuelo.findOne({nVuelo: nVuelo}, function (err, vuelo) {
+                io.emit('detallesVuelosSocket', vuelo);
             });
         });
     });

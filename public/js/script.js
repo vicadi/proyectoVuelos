@@ -97,7 +97,7 @@ $(document).ready(function(){
   }
 
 //recibe info del socket y cambia los valores de los input
-  var socket = io();
+    var socket = io();
       socket.on('userSocketServer', function(user){
           $("#fEditCliente input[name='nickName'] ").val(user.nickName);
           $("#fEditCliente input[name='nickNameOriginal']").val(user.nickName);
@@ -123,13 +123,16 @@ $(document).ready(function(){
            $('#buscar #seleccionVuelo').append(new Option(vuelo[i], vuelo[i]));
         }
       });
+
       socket.on('buscarVueloSocketServer', function(vuelos){
         $('#resultado #vuelos').html('');
         for (var i = 0; i < vuelos.length; i++) {
-           $('#resultado #vuelos').append(new Option(vuelos[i].nVuelo, vuelos[i].nVuelo));
+           $('#resultado #vuelos').append(new Option(vuelos[i].origen+"-"+vuelos[i].destino, vuelos[i].nVuelo));
         }
       });
-
+      socket.on('detallesVuelosSocket', function(vuelos){
+        alert(vuelos.fechaVuelo);
+      });
 
   //evento al seleccionar un usuario en el admin
   $('#editarCliente #nombreUser').change(function( ) {
@@ -185,23 +188,22 @@ $(document).ready(function(){
   });
 
 //buscar vuelo cliente
-  $('#buscar #seleccionBuscar').change(function( ) {
-      var seleccionAtributoBuscar = $('#buscar #seleccionBuscar').val();
-      if(seleccionAtributoBuscar!="vacio"){
-        socket.emit('atributoBuscarSocketVuelo', seleccionAtributoBuscar);
-      }else{
-        $('#buscar #seleccionVuelo').html('');
-      }
-  }); 
-  $('#buscar #seleccionVuelo').change(function( ) {
-      var seleccionBuscar = $('#buscar #seleccionVuelo').val();
-      var seleccionAtributoBuscar = $('#buscar #seleccionBuscar').val();
-
-        socket.emit('buscarSocketVuelo', seleccionAtributoBuscar, seleccionBuscar);
-  }); 
-
-
-
+    $('#buscarVuelos button').click(function(){
+      var ParametrosBusqueda={};
+      if($("#buscarVuelos input[name='fecha']").val())
+          ParametrosBusqueda.fechaVuelo=$("#buscarVuelos input[name='fecha']").val();
+      if($("#buscarVuelos input[name='origen']").val())
+          ParametrosBusqueda.origen=$("#buscarVuelos input[name='origen']").val();
+      if($("#buscarVuelos input[name='destino']").val())
+          ParametrosBusqueda.destino=$("#buscarVuelos input[name='destino']").val();
+          
+        socket.emit('buscarSocketVuelo', ParametrosBusqueda);
+    });
+    //escribe los detalles del vuelo
+      $('#resultado #listaVuelos #vuelos').change(function(){
+        var vuelo=$('#resultado #listaVuelos #vuelos').val();
+            socket.emit('detallesVuelosSocket', vuelo);
+      });
  // $("#fBuscar input[name='busqueda']").attr('type', 'date');
 });
 
@@ -222,3 +224,4 @@ function eliminarVuelo(){
         document.location.href= "/vuelos/delete/"+$("#fEditVuelo input[name='nVueloOriginal']").val();
     } 
 }
+

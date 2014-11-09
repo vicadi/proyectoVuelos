@@ -18,8 +18,7 @@ border-radius(a)
 	bottom 0
 	position absolute
 	padding 8px
-	border 1px solid black
-
+	border
 	table
 		font-size 12px
 		right 0
@@ -58,26 +57,43 @@ border-radius(a)
 	padding 5%
 	box-shadow 2px 2px 8px 4px #666
 
-#buscar
-	width 50%
-	float left
-	margin-left 8%
-	margin-top 10%
+#buscarVuelos
+	width 100%
 	
-	table td 
-    	height 60px
+	table 
+    	margin auto
+		td 
+    	height 40px
+    	min-width 200px
+    	padding 0 5px 0 5px
+    	
 
 #resultado
-    float right
-    margin-top 8%
-    
-    table
-    	text-align center
-    	span
-    		color red
+	height 500px
+	#listaVuelos
+		float left
+		width 40%
+		margin-top 8%
+		table
+			margin auto
+		
+		table
+			text-align center
+			width 80%
+			span
+				color red
 
-    #seleccioVuelos
-    	width 250px
+	    #seleccioVuelos
+	    	width 250px
+	
+	#detalleVuelo
+		margin 5% 5% 5% 5%
+		padding 1% 1% 1% 1%
+		width 40%
+		height 80%
+		float right
+		border 1px solid black
+		text-align center
 
 #reserva
 	width 50%
@@ -96,10 +112,12 @@ border-radius(a)
     	height 300px
 #cancelar
 	width 50%
+	
 	float left
 	margin-top 2%
 	table td
 		height 60px
+		min-width 180px
 		padding 2px 2px 2px 2px
 
 #informeCancelar 
