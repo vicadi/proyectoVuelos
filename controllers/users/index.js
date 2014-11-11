@@ -102,7 +102,7 @@ function isAuthenticated(req, res, next) {
     }
 
      req.flash('message', 'No estas autenticado.');
-     res.redirect('/');
+     res.redirect('/users');
 }
 
 function isAdmin(req, res, next) {

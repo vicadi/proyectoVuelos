@@ -16,6 +16,7 @@ module.exports.create = function(req, res, done) {
 	                    newVuelo.origen = req.body.origen;
 	                    newVuelo.destino = req.body.destino;
 	                    newVuelo.numeroPasajeros = req.body.numeroPasajeros;
+	                    newVuelo.numeroPasajerosDis=req.body.numeroPasajeros;
 	                    newVuelo.fechaVuelo = req.body.fechaVuelo;
 	                    newVuelo.horaVuelo = req.body.horaVuelo;
 	                    newVuelo.precioVuelo = req.body.precioVuelo;
@@ -53,8 +54,10 @@ module.exports.update = function (req, res, done) {
 			updateVuelo.origen = req.body.origen;
 		if(req.body.destino)
 			updateVuelo.destino = req.body.destino;
-		if(req.body.numeroPasajeros)
+		if(req.body.numeroPasajeros){
 			updateVuelo.numeroPasajeros = req.body.numeroPasajeros;
+			updateVuelo.numeroPasajerosDis=req.body.numeroPasajeros;
+		}
 		if(req.body.fechaVuelo)
 			updateVuelo.fechaVuelo = req.body.fechaVuelo;
 		if(req.body.horaVuelo)

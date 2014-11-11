@@ -10,6 +10,26 @@ block content
        a Editar mi perfil
    #administrarUser
     #editarMisVuelos.active
+      h3 Mis vuelos
+      each vuelo in sesion.vuelos
+        #vuelo
+          form(method="POST", action="/vuelos/borrarVueloCliente")
+            input(name="vuelo"  type="hidden" value=vuelo.vuelo)
+            button(type="submit" class="close")
+              span(aria-hidden="true") &times;
+          table
+            tr(colspan=2)
+              th #{vuelo.inf}
+            tr
+              td Id
+              td #{vuelo.recervacionId}
+            tr
+              td Vuelo
+              td #{vuelo.vuelo}
+            tr
+              td Numero de pasajes
+              td #{vuelo.numero}
+
     #editarMiPerfil
       form#fEditMyPerfil(method="POST", action="/users/edit")
        table

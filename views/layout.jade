@@ -43,8 +43,6 @@ html
       ul.nav.nav-pills
         li(class=pVuelos)
           a(href='/') Vuelos
-        li(class=pCancelar)
-          a(href='/vuelos/cancelar') Cancelar vuelos
         li(class=pCliente)
           a(href='/users') Cliente
         if sesion && sesion.nickName=="admin"
@@ -52,3 +50,16 @@ html
           a(href='/users/administrador/newCliente') Administrador
       #principal
         block content
+  
+  .modal.fade(id="myModal" role="dialog" tabindex="-1" aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button(type="button" class="close" data-dismiss="modal")
+            span(aria-hidden="true") &times;
+          h4.modal-title#myModalTitulo titulo
+        .modal-body
+          #myModalCuerpo
+        .modal-footer
+          button(type="button" class="btn btn-default" data-dismiss="modal") Cancelar
+          button#myModalBoton(type="button" class="btn btn-primary" data-dismiss="modal") Guardar

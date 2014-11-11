@@ -2,6 +2,11 @@ $(document).ready(function(){
 
 //menu cliente
   //Abre la pestaña editar mis vuelos en el cliente
+  
+  $('#menuAdminUser').ready(function( ) {
+      $("#administrarUser #editarMisVuelos").show( "slow" );
+  });
+
   $('#menuAdminUser li#bEditarMisVuelos').click(function( ) {
       $('#administrarUser .active').hide(function(){
       $('#administrarUser .active').removeClass('active');
@@ -130,9 +135,53 @@ $(document).ready(function(){
            $('#resultado #vuelos').append(new Option(vuelos[i].origen+"-"+vuelos[i].destino, vuelos[i].nVuelo));
         }
       });
-      socket.on('detallesVuelosSocket', function(vuelos){
-        alert(vuelos.fechaVuelo);
+
+      socket.on('detallesVuelosSocket', function(vuelos){   
+        $('#resultado #detalleVuelo #detalles').text("")    
+        $('#resultado #detalleVuelo #detalles').append(
+          $('<table>').append(
+            $('<tr>').append(
+              $('<td>').text("Vuelo:"),
+              $('<td>').text(vuelos.nVuelo)
+            ),
+            $('<tr>').append(
+              $('<td>').text("Fecha del vuelo:"),
+              $('<td>').text(vuelos.fechaVuelo)
+            ),
+            $('<tr>').append(
+              $('<td>').text("Hora:"),
+              $('<td>').text(vuelos.horaVuelo)
+            ),
+            $('<tr>').append(
+              $('<td>').text("Aerolinea:"),
+              $('<td>').text(vuelos.aerolinea)
+            ),
+            $('<tr>').append(
+              $('<td>').text("Precio:"),
+              $('<td>').text(vuelos.precioVuelo)
+            ),
+            $('<tr>').append(
+              $('<td>').text("Origen:"),
+              $('<td>').text(vuelos.origen)
+            ),
+            $('<tr>').append(
+              $('<td>').text("Destino:"),
+              $('<td>').text(vuelos.destino)
+            ),
+            $('<tr>').append(
+              $('<td>').text("Puestos disponibles:"),
+              $('<td>').text(vuelos.numeroPasajerosDis)
+            )
+          )
+        );
       });
+  
+//habilita boton al escoger vuelo
+  $('#resultado #listaVuelos #vuelos').change(function(){
+      $('#resultado #listaVuelos button').prop('disabled', false);
+       $('#resultado #listaVuelos input[name="vuelosOyD"]').val($('#resultado #listaVuelos #vuelos option:selected').text());
+  });  
+
 
   //evento al seleccionar un usuario en el admin
   $('#editarCliente #nombreUser').change(function( ) {
@@ -205,10 +254,12 @@ $(document).ready(function(){
             socket.emit('detallesVuelosSocket', vuelo);
       });
  // $("#fBuscar input[name='busqueda']").attr('type', 'date');
+
 });
 
 //cuadros de confirmacion
 function eliminarUser(){
+
     if(confirm("¿Seguro que quieres eliminar a "+$("#fEditCliente input[name='nickNameOriginal']").val()+"?")) {
         document.location.href= "/users/delete/"+$("#fEditCliente input[name='nickNameOriginal']").val();
     }
@@ -223,5 +274,12 @@ function eliminarVuelo(){
     if(confirm("¿Seguro que quieres eliminar el vuelo"+$("#fEditVuelo input[name='nVueloOriginal']").val()+"?")){
         document.location.href= "/vuelos/delete/"+$("#fEditVuelo input[name='nVueloOriginal']").val();
     } 
+}
+function dialog(titulo, cuerpo, boton, funcionClick){
+  $('#myModal #myModalTitulo').text(titulo);
+  $('#myModal #myModalCuerpo').html(cuerpo);
+  $('#myModal #myModalBoton').text(boton);
+  $('#myModal #myModalBoton').attr("onclick", funcionClick);
+  $('#myModal').modal();
 }
 

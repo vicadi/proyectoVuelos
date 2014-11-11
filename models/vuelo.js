@@ -6,6 +6,7 @@ var vueloSchema = new Schema({
 	origen : String,
     destino : String,
     numeroPasajeros : Number,
+    numeroPasajerosDis: Number, 
     fechaVuelo : String,
     horaVuelo: String,
     precioVuelo : Number,

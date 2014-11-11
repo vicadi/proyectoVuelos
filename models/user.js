@@ -6,7 +6,7 @@ var userSchema = new Schema({
 	nombre : String,
 	documento : Number,
     tipoPago : String,
-    vuelos : [String],
+    vuelos : [],
     contrasena : String,
     nickName : String
 });
